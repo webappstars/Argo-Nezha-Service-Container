@@ -58,7 +58,7 @@ Argo 隧道认证方式有 json 和 token，使用两个方式其中之一
 <img width="1659" alt="image" src="https://github.com/fscarmen2/Argo-Nezha-Service-Container/assets/92626977/5aa4df19-f277-4582-8a4d-eef34a00085c">
 <img width="1470" alt="image" src="https://github.com/fscarmen2/Argo-Nezha-Service-Container/assets/92626977/ec06ec20-a68d-405c-b6de-cd4c52cbd8c0">
 <img width="1652" alt="image" src="https://github.com/fscarmen2/Argo-Nezha-Service-Container/assets/92626977/d0fba15c-f41b-4ee4-bea3-f0506d9b2d23">
-<img width="1670" alt="image" src="https://github.com/fscarmen2/Argo-Nezha-Service-Container/assets/92626977/2a28eab8-e434-4d06-85db-f2017b50f8de">
+<img width="1394" alt="image" src="https://github.com/fscarmen2/Argo-Nezha-Service-Container/assets/92626977/ab526fae-7a71-4a7c-9aee-a3bfe4774958">
 <img width="1671" alt="image" src="https://github.com/fscarmen2/Argo-Nezha-Service-Container/assets/92626977/c6bcc511-e2f9-4616-bcca-47e1a8a25313">
 <img width="1670" alt="image" src="https://github.com/fscarmen2/Argo-Nezha-Service-Container/assets/92626977/7fbe3ef7-fb43-4925-9478-89ee08e44941">
 
@@ -220,11 +220,16 @@ tar czvf dashboard.tar.gz /dashboard
 |   |   |-- config.yaml      # 哪吒面板的配置，如 Github OAuth2 / gRPC 域名 / 端口 / 是否启用 TLS 等信息
 |   |   `-- sqlite.db        # SQLite 数据库文件，记录着面板设置的所有 severs 和 cron 等信息
 |   |-- entrypoint.sh        # 主脚本，容器运行后执行
-|   |-- nezha-agent          # 哪吒客户端，用于监控本地 localhost
 |   |-- nezha.csr            # SSL/TLS 证书签名请求
 |   |-- nezha.key            # SSL/TLS 证书的私钥信息
 |   |-- nezha.pem            # SSL/TLS 隐私增强邮件
 |   `-- restore.sh           # 还原备份脚本
+|-- usr
+|   `-- local
+|       `-- bin
+|           |-- cloudflared  # Cloudflare Argo 隧道主程序
+|           |-- grpcwebproxy # gRPC 反代主程序
+|           `-- nezha-agent  # 哪吒客户端，用于监控本地 localhost
 |-- dbfile                   # 记录最新的还原或备份文件名
 `-- version                  # 记录当前的面板 app 版本
 ```
@@ -240,6 +245,7 @@ tar czvf dashboard.tar.gz /dashboard
 * 如何给 GitHub Actions 添加自己的 Runner 主机: https://cloud.tencent.com/developer/article/1756690
 * github self-hosted runner 添加与启动: https://blog.csdn.net/sinat_32188225/article/details/125978331
 * 如何从Docker镜像中导出文件: https://www.pkslow.com/archives/extract-files-from-docker-image
+* grpcwebproxy: https://github.com/improbable-eng/grpc-web/tree/master/go/grpcwebproxy
 
 
 ## 免责声明:

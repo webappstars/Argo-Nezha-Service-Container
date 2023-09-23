@@ -59,7 +59,7 @@ The Argo Tunnel authentication methods are json and token, use one of the two me
 <img width="1652" alt="image" src="https://github.com/fscarmen2/Argo-Nezha-Service-Container/assets/92626977/89b2b758-e550-413d-aa3e-216d226da7f4">
 <img width="1463" alt="image" src="https://github.com/fscarmen2/Argo-Nezha-Service-Container/assets/92626977/9f77e26b-a25d-4ff0-8425-1085708e19c3">
 <img width="1652" alt="image" src="https://github.com/fscarmen2/Argo-Nezha-Service-Container/assets/92626977/d0fba15c-f41b-4ee4-bea3-f0506d9b2d23">
-<img width="1670" alt="image" src="https://github.com/fscarmen2/Argo-Nezha-Service-Container/assets/92626977/2a28eab8-e434-4d06-85db-f2017b50f8de">
+<img width="1394" alt="image" src="https://github.com/fscarmen2/Argo-Nezha-Service-Container/assets/92626977/ab526fae-7a71-4a7c-9aee-a3bfe4774958">
 <img width="1671" alt="image" src="https://github.com/fscarmen2/Argo-Nezha-Service-Container/assets/92626977/c6bcc511-e2f9-4616-bcca-47e1a8a25313">
 <img width="1670" alt="image" src="https://github.com/fscarmen2/Argo-Nezha-Service-Container/assets/92626977/7fbe3ef7-fb43-4925-9478-89ee08e44941">
 
@@ -220,11 +220,16 @@ tar czvf dashboard.tar.gz /dashboard
 |   |   |-- config.yaml      # Configuration for the Nezha panel, e.g. Github OAuth2 / gRPC domain / port / TLS enabled or not.
 |   |   `-- sqlite.db        # SQLite database file that records all severs and cron settings for the panel.
 |   |-- entrypoint.sh        # The main script, which is executed after the container is run.
-|   |-- nezha-agent          # Nezha client, used to monitor the localhost.
 |   |-- nezha.csr            # SSL/TLS certificate signing request
 |   |-- nezha.key            # Private key information for SSL/TLS certificate.
 |   |-- nezha.pem            # SSL/TLS Privacy Enhancement Email
 |   `-- restore.sh           # Restore backup scripts
+|-- usr
+|   `-- local
+|       `-- bin
+|           |-- cloudflared  # Cloudflare Argo tunnel main program.
+|           |-- grpcwebproxy # gRPC reverse proxy main program.
+|           `-- nezha-agent  # Nezha client, used to monitor the localhost.
 |-- dbfile                   # Record the name of the latest restore or backup file
 `-- version                  # Record the current panel app version
 ```
@@ -240,6 +245,7 @@ tar czvf dashboard.tar.gz /dashboard
 * How to add your own Runner host to GitHub Actions: https://cloud.tencent.com/developer/article/1756690
 * github self-hosted runner addition and startup: https://blog.csdn.net/sinat_32188225/article/details/125978331
 * How to export a file from a Docker image: https://www.pkslow.com/archives/extract-files-from-docker-image
+* grpcwebproxy: https://github.com/improbable-eng/grpc-web/tree/master/go/grpcwebproxy
 
 
 ## Disclaimer
